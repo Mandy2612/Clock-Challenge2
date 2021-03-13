@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/*Opmaak html page*/
+*{
+	margin-top: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: black;
+	background-image: url("../images/mars.png");
+	background-repeat: no-repeat;
+  	background-size: cover;
+  	background-attachment: fixed;
+  	background-position: center center;
+
+}
+/*Einde opmaak html page*/
+
+/*Opmaak astronaut animatie*/
+.astronaut{
+	position: relative;
+}
+
+.astronaut img{
+	height: 100px;
+    width: 100px;
+    position: absolute;
+    bottom: -87vh;
+    transform: rotate(15deg);
+    animation: 1000ms fly infinite alternate ease-in-out;
+}
+
+@keyframes fly {
+ from {bottom: -89vh;}
+  to {bottom: -87vh;}
+}
+/*Einde opmaak astronaut*/
+
+/*Grid aanmaak*/
+.grid-container{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 20px;
+	align-items: center;
+	position: relative;
+	overflow: auto;
+
+}
+
+/*Grid item 1 (intro) opmaak*/
+.intro{
+	grid-column-start: 1;
+ 	grid-column-end: 4;
+ 	color: white;
+ 	font-family: 'Montserrat';
+ 	text-align: center;
+ 	padding-top: 20px;
+}
+
+.intro h1 {
+	font-size: 13px;
+}
+
+.intro h2{
+	font-size: 12px;
+}
+
+.intro p{
+	font-size: 11px;
+}
+/*Einde item 1 opmaak*/
+
+/*Grid item 2 (digitale klok) opmaak*/
+.digitalclock{
+	grid-column-start: 1;
+ 	grid-column-end: 4;
+	color: white;
+	text-align: center;
+	font-family: 'Roboto Mono';
+}
+
+.digitalclock img{
+	max-width: 300px;
+	height: 190px;
+}
+
+.digitalclock #digitalclock {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 13px;
+  	font-weight: bold;
+    letter-spacing: 13px;
+}
+/*Einde item 2 opmaak*/
+
+/*Grid item 3 analoge klok opmaak + kleur van middag klok*/
+.middag, .avond, .nacht, .ochtend{
+	grid-column-start: 1;
+ 	grid-column-end: 4;
+	color: white;
+	text-align: center;
+	margin: auto;
+	font-family: 'Montserrat';
+	width: 150px;
+	height: 150px;
+	background: linear-gradient(0deg,#B60D66,#ED6C4D,#AB7B5F);
+	border-radius: 50%;
+	position: relative;
+	margin-top: -15%;
+}
+/*Einde grid item 3 analoge klok opmaak*/
+
+/*Kleur avond analoge klok opmaak*/
+.avond{
+	background: linear-gradient(0deg,#020202,#10106F,#939393);
+}
+/*Einde avond analoge klok opmaak*/
+
+/*Kleur nacht analoge klok opmaak*/
+.nacht{
+	background: black;
+	border: 1px solid white;
+}
+/*Einde nacht analoge klok opmaak*/
+
+/*Kleur ochtend analoge klok opmaak*/
+.ochtend{
+	background: linear-gradient(0deg,#F83608,#FB954F,#FDD17B);
+}
+/*Einde ochtend analoge klok opmaak*/
+
+/*Opmaak wijzers analoge klok*/
+.middag .hand, .avond .hand, .nacht .hand, .ochtend .hand{
+	--rotation:0;
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	width: 5px;
+	height: 40%;
+	background-color: white;
+	transform-origin: bottom;
+	z-index: 10;
+	transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+/*Einde wijzers opmaak*/
+
+/*Opmaak middelpunt analoge klok*/
+.middag::after, .avond::after, .nacht::after, .ochtend::after{
+	content: '';
+	position: absolute;
+	background-color: white;
+	z-index: 11;
+	width: 7px;
+	height: 7px;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
+/*Einde opmaak*/
+
+/*Opmaak seconde wijzer analoge klok*/
+.middag .hand.second, .avond .hand.second, .nacht .hand.second, .ochtend .hand.second{
+	width: 1px;
+	height: 45%;
+	background-color: #7E0042;
+}
+/*Einde seconde wijzer*/
+
+/*Opmaak minuut wijzer analoge klok*/
+.middag .hand.minute, .avond .hand.minute, .nacht .hand.minute, .ochtend .hand.minute {
+	width: 3px;
+	height: 40%;
+	background-color: white;
+}
+/*Einde minuut wijzer*/
+
+/*Opmaak uur wijzer analoge klok*/
+.middag .hand.hour, .avond .hand.hour, .nacht .hand.hour, .ochtend .hand.hour{
+	width: 3px;
+	height: 30%;
+	background-color: white;
+}
+/*Einde uur wijzer*/
+
+
+/*Datum opmaak*/
+.date{
+	grid-column-start: 1;
+ 	grid-column-end: 4;
+	color: white;
+	text-align: center;
+	font-family: 'Montserrat';
+}
+
+.date p{
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	padding-top: 10px;
+}
+/*Einde datum opmaak*/
+
+/*London tijd opmaak*/
+.londonTime{
+	grid-column-start: 1;
+ 	grid-column-end: 2;
+	color: white;
+	text-align: center;
+	font-family: 'Roboto Mono';
+	margin-top: 30px;
+	font-size: 12px;
+}
+/*Einde*/
+
+/*New York tijd opmaak*/
+.newyorkTime{
+	grid-column-start: 2;
+ 	grid-column-end: 3;
+	color: white;
+	text-align: center;
+	font-family: 'Roboto Mono';
+	margin-top: 30px;
+	font-size: 12px;
+}
+/*Einde*/
+
+/*Tokyo tijd opmaak*/
+.tokyoTime{
+	grid-column-start: 3;
+ 	grid-column-end: 4;
+	color: white;
+	text-align: center;
+	font-family: 'Roboto Mono';
+	margin-top: 30px;
+	font-size: 12px;	
+}
+/*Einde*/
+
+/*Font-size van plaatsnamen*/
+.londonTime .fontsize, .newyorkTime .fontsize, .tokyoTime .fontsize{
+	font-size: 11px;
+}
+/*Einde*/
+
+
+
+/*Start Ipad device*/
+@media only screen and (min-width: 768px){
+
+/*Opmaak astronaut animatie*/
+.astronaut img{
+	height: 120px;
+    width: 120px;
+}
+/*Einde opmaak astronaut*/
+
+/*Grid item 1 (intro) opmaak*/
+.intro{
+ 	padding-top: 35px;
+}
+
+.intro h1 {
+	font-size: 14px;
+}
+
+.intro h2{
+	font-size: 13px;
+}
+
+.intro p{
+	font-size: 12px;
+}
+/*Einde item 1 opmaak*/
+
+/*Grid item 2 (digitale klok) opmaak*/
+.digitalclock img{
+	max-width: 450px;
+	height: 290px;
+}
+
+.digitalclock #digitalclock {
+    top: 38%;
+    font-size: 15px;
+    letter-spacing: 15px;
+}
+/*Einde item 2 opmaak*/
+
+/*Grid item 3 analoge klok opmaak*/
+.middag, .avond, .nacht, .ochtend{
+	width: 170px;
+	height: 170px;
+	margin-top: -12%;
+}
+/*Einde grid item 3 analoge klok opmaak*/
+
+/*Datum opmaak*/
+.date p{
+	font-size: 13px;
+	letter-spacing: 4px;
+	padding-top: 5%;
+}
+/*Einde datum opmaak*/
+
+/*Tijdzones*/
+.londonTime, .newyorkTime, .tokyoTime {
+	font-size: 15px;
+	margin-top: 15px;
+}
+/*Einde*/
+
+/*Font size van plaatsnamen*/
+.londonTime .fontsize, .newyorkTime .fontsize, .tokyoTime .fontsize{
+	font-size: 12px;
+}
+/*Einde*/
+}
+
+/*Einde Ipad device*/
+
+
+/*Start kleine desktop*/
+@media screen and (min-width: 1280px){
+
+/*Opmaak astronaut animatie*/
+@keyframes fly {
+ from {bottom: -93vh;}
+  to {bottom: -90vh;}
+}
+/*Einde opmaak astronaut*/
+
+/*Grid item 1 (intro) opmaak*/
+.intro{
+	grid-column-start: 1;
+ 	grid-column-end: 2;
+ 	grid-row-start: 2;
+ 	grid-row-end: 3;
+ 	color: white;
+ 	padding-top: 0px;
+}
+/*Einde item 1 opmaak*/
+
+/*Grid item 2 (digitale klok) opmaak*/
+.digitalclock{
+	grid-column-start: 1;
+ 	grid-column-end: 4;
+ 	grid-row-start: 1;
+ 	grid-row-end: 2;
+	
+}
+
+.digitalclock img{
+	width: 700px;
+	height: 300px;
+}
+
+.digitalclock #digitalclock {
+    top: 28%;
+    letter-spacing: 15px;
+}
+/*Einde item 2 opmaak*/
+
+/*Grid item 3 analoge klok opmaak*/
+.middag, .avond, .nacht, .ochtend{
+	grid-column-start: 2;
+ 	grid-column-end: 3;
+ 	grid-row-start: 2;
+ 	grid-row-end: 3;
+	margin-top: -20%;
+}
+/*Einde grid item 3 analoge klok opmaak*/
+
+/*Datum opmaak*/
+.date{
+	grid-column-start: 3;
+ 	grid-column-end: 4;
+ 	grid-row-start: 2;
+ 	grid-row-end: 3;
+}
+/*Einde datum opmaak*/
+
+/*London tijd opmaak*/
+.londonTime{
+	grid-column-start: 1;
+ 	grid-column-end: 2;
+ 	grid-row-start: 3;
+ 	grid-row-end: 4;
+	margin-top: 15%;
+	font-size: 13px;
+}
+/*Einde*/
+
+/*New York tijd opmaak*/
+.newyorkTime{
+	grid-column-start: 2;
+ 	grid-column-end: 3;
+ 	grid-row-start: 3;
+ 	grid-row-end: 4;
+	margin-top: 15%;
+	font-size: 13px;
+}
+/*Einde*/
+
+/*Tokyo tijd opmaak*/
+.tokyoTime{
+	grid-column-start: 3;
+ 	grid-column-end: 4;
+ 	grid-row-start: 3;
+ 	grid-row-end: 4;
+	margin-top: 15%;
+	font-size: 13px;	
+}
+/*Einde*/
+
+}
+/*Einde kleine desktop*/
+
+/*Start grote desktop*/
+@media screen and (min-width: 1920px){
+
+/*Opmaak astronaut animatie*/
+.astronaut img{
+	height: 135px;
+    width: 135px;
+ }
+
+@keyframes fly {
+ from {bottom: -90vh;}
+  to {bottom: -87vh;}
+}
+/*Einde opmaak astronaut*/
+
+/*Grid aanmaak*/
+.grid-container{
+	margin-top: 3%;
+}
+
+/*Grid item 1 (intro) opmaak*/
+.intro{
+ 	padding-top: 0px;
+}
+
+.intro h1 {
+	font-size: 16px;
+}
+
+.intro h2{
+	font-size: 15px;
+}
+
+.intro p{
+	font-size: 14px;
+}
+/*Einde item 1 opmaak*/
+
+/*Grid item 2 (digitale klok) opmaak*/
+.digitalclock img{
+	width: 800px;
+	height: 300px;
+}
+
+.digitalclock #digitalclock {
+    top: 28%;
+    letter-spacing: 17px;
+    font-size: 16px;
+}
+/*Einde item 2 opmaak*/
+
+/*Grid item 3 analoge klok opmaak*/
+.middag, .avond, .nacht, .ochtend{
+	margin-top: -10%;
+	width: 185px;
+	height: 185px;
+}
+/*Einde grid item 3 analoge klok opmaak*/
+
+/*Datum opmaak*/
+.date p{
+	font-size: 15px;
+	padding-top: 0;
+}
+/*Einde datum opmaak*/
+
+/*London tijd opmaak*/
+.londonTime{
+	margin-top: 15%;
+	font-size: 15px;
+}
+/*Einde*/
+
+/*New York tijd opmaak*/
+.newyorkTime{
+	margin-top: 15%;
+	font-size: 15px;
+}
+/*Einde*/
+
+/*Tokyo tijd opmaak*/
+.tokyoTime{
+	margin-top: 15%;
+	font-size: 15px;	
+}
+/*Einde*/
+
+/*Font-size van plaatsnamen*/
+.londonTime .fontsize, .newyorkTime .fontsize, .tokyoTime .fontsize{
+	font-size: 13px;
+}
+/*Einde*/
+}
+/*Einde grote desktop*/
+
+
+
+
